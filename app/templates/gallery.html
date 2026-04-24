@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Gallery | Mehendi Muse{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Mehendi Gallery</h1>
+  <div class="filters glass">
+    <input id="searchInput" type="text" placeholder="Search by style, motif, category..." />
+    <select id="categorySelect"><option value="">All Categories</option></select>
+  </div>
+  <div id="loading" class="loader">Loading designs...</div>
+  <div id="galleryGrid" class="design-grid"></div>
+</section>
+<div id="lightbox" class="lightbox hidden">
+  <span id="closeLightbox">×</span>
+  <img id="lightboxImage" src="" alt="Full Design" />
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+{% endblock %}

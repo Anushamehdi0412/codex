@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Favorites | Mehendi Muse{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Your Saved Favorites</h1>
+  <div id="favoritesGrid" class="design-grid"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/favorites-list.js') }}"></script>
+{% endblock %}
