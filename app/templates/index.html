@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Mehendi Designs Collection{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content glass fade-in">
+    <h1>Mehendi Designs Collection</h1>
+    <p>Explore Bridal, Arabic & Modern Mehendi Styles</p>
+    <a class="cta" href="{{ url_for('gallery') }}">Explore Gallery</a>
+  </div>
+</section>
+
+<section class="carousel-section container">
+  <h2>Featured Designs</h2>
+  <div class="carousel" id="featuredCarousel">
+    {% for item in featured %}
+    <div class="slide">
+      <img src="{{ item.image_url }}" alt="{{ item.description }}" />
+      <div class="slide-caption">{{ item.category }} • {{ item.description }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="categories container">
+  <h2>Categories</h2>
+  <div class="category-grid">
+    <a href="{{ url_for('gallery') }}?category=Bridal%20Mehendi" class="category-card">Bridal Mehendi</a>
+    <a href="{{ url_for('gallery') }}?category=Arabic%20Mehendi" class="category-card">Arabic Mehendi</a>
+    <a href="{{ url_for('gallery') }}?category=Minimal%20Mehendi" class="category-card">Minimal Mehendi</a>
+    <a href="{{ url_for('gallery') }}?category=Traditional%20Mehendi" class="category-card">Traditional Mehendi</a>
+    <a href="{{ url_for('gallery') }}?category=Modern%20Designs" class="category-card">Modern Designs</a>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}

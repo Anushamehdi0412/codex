@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Signup | Mehendi Muse{% endblock %}
+{% block content %}
+<section class="auth-section">
+  <form id="signupForm" class="glass auth-form">
+    <h2>Create Account</h2>
+    <input type="text" name="name" placeholder="Full Name" minlength="2" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" minlength="6" required />
+    <button type="submit">Sign Up</button>
+    <p>Already registered? <a href="{{ url_for('login_page') }}">Login</a></p>
+    <p id="authMsg"></p>
+  </form>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+{% endblock %}

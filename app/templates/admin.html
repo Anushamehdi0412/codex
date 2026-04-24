@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Admin Panel | Mehendi Muse{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Admin Panel</h1>
+  <form id="uploadForm" class="glass admin-form" enctype="multipart/form-data">
+    <h2>Upload New Mehendi Design</h2>
+    <input name="category" type="text" placeholder="Category" list="categoriesList" required />
+    <datalist id="categoriesList">
+      {% for c in categories %}<option value="{{ c }}"></option>{% endfor %}
+    </datalist>
+    <input name="description" type="text" placeholder="Description" required />
+    <input name="tags" type="text" placeholder="Comma separated tags" />
+    <input name="image" type="file" accept="image/*" required />
+    <button type="submit">Upload</button>
+    <p id="adminMsg"></p>
+  </form>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}
